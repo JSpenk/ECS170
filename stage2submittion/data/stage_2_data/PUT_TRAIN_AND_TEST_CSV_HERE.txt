@@ -1,0 +1,2 @@
+Put train.csv (60,000 rows) and test.csv (10,000 rows) from the course stage_2_data.zip in this folder.
+They are not included because of their size (128 MB; train.csv is over GitHub's 100 MB file limit).
