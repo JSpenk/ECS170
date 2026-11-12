@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b1cf04e4-4eda-4bb4-8b9a-55004264f979" name="Changes" comment="Stage 4" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;assignee&quot;: &quot;theresadinh-cs&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;assignee&quot;: &quot;theresadinh-cs&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JSpenk/ECS170.git&quot;,
+    &quot;accountId&quot;: &quot;b64565b8-ec3b-4e4c-9ad6-ef38106c9297&quot;
+  }
+}</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.570381857934212" />
+      <entry key="MS500" value="1.89379280963838" />
+      <entry key="S2" value="2.150073469933257" />
+      <entry key="S5" value="4.124863124915676" />
+      <entry key="S10" value="7.333673961170687" />
+      <entry key="S30" value="13.352950491398865" />
+      <entry key="S60" value="19.855922916015107" />
+      <entry key="M2" value="29.69846453925771" />
+      <entry key="M5" value="44.78206309564254" />
+      <entry key="M10" value="59.38853080244631" />
+      <entry key="M15" value="69.51676442142404" />
+      <entry key="M30" value="87.58185227658583" />
+      <entry key="H1" value="104.91943940455276" />
+      <entry key="H2" value="119.49903262382148" />
+      <entry key="H4" value="129.71827484658132" />
+      <entry key="D1" value="140.52354440058792" />
+      <entry key="W1" value="142.638994636849" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="8.262817496571815E-19" />
+      <entry key="MS500" value="2.4178292771802356E-4" />
+      <entry key="S2" value="0.12469711565805677" />
+      <entry key="S5" value="0.43485309276058026" />
+      <entry key="S10" value="0.6594339184183511" />
+      <entry key="S30" value="0.8704097767587938" />
+      <entry key="S60" value="0.9329575428489731" />
+      <entry key="M2" value="0.9658972734452527" />
+      <entry key="M5" value="0.9862167538525829" />
+      <entry key="M10" value="0.9930844646114363" />
+      <entry key="M15" value="0.9953843128278638" />
+      <entry key="M30" value="0.9976894871791844" />
+      <entry key="H1" value="0.9988440755088775" />
+      <entry key="H2" value="0.9994218706376591" />
+      <entry key="H4" value="0.9997108935275533" />
+      <entry key="D1" value="0.9999518097825559" />
+      <entry key="W1" value="0.9999931155410366" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.4819443779937427" />
+      <entry key="MS500" value="1.8718001015729273" />
+      <entry key="S2" value="2.230190545488787" />
+      <entry key="S5" value="4.4594501400565605" />
+      <entry key="S10" value="7.89260781207873" />
+      <entry key="S30" value="14.162464864501509" />
+      <entry key="S60" value="20.74606791733441" />
+      <entry key="M2" value="30.635849127218936" />
+      <entry key="M5" value="45.753591481332016" />
+      <entry key="M10" value="60.37286352653356" />
+      <entry key="M15" value="70.50560001015327" />
+      <entry key="M30" value="88.57549898134798" />
+      <entry key="H1" value="105.91575279786592" />
+      <entry key="H2" value="120.4969174585832" />
+      <entry key="H4" value="130.71711003819402" />
+      <entry key="D1" value="141.52333005854373" />
+      <entry key="W1" value="143.63896343302605" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3KhGrU8KWwlY8FV9LWJILVfZWqd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Evaluate_Metrics.executor": "Run",
+    "Python.Test.executor": "Run",
+    "Python.script_rnn.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/theXr/PycharmProjects/ECS170/stage2submittion/script/stage_4_script",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "to.speed.mode.migration.done": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory",
+      "repository"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\theXr\PycharmProjects\ECS170\stage2submittion\script\stage_4_script" />
+      <recent name="C:\Users\theXr\PycharmProjects\ECS170\stage2submittion\local_code\stage_4_code" />
+      <recent name="C:\Users\theXr\PycharmProjects\ECS170\stage2submittion\local_code" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-73a66231627c-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10968.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1cf04e4-4eda-4bb4-8b9a-55004264f979" name="Changes" comment="" />
+      <created>1792002584393</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792002584393</updated>
+      <workItem from="1792017604524" duration="1206000" />
+      <workItem from="1794509122444" duration="11263000" />
+    </task>
+    <task id="LOCAL-00001" summary="Stage 4">
+      <option name="closed" value="true" />
+      <created>1794518146770</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1794518146771</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Stage 4">
+      <option name="closed" value="true" />
+      <created>1794518819093</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1794518819093</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Stage 4 Complete">
+      <option name="closed" value="true" />
+      <created>1794518909955</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1794518909955</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Stage 4">
+      <option name="closed" value="true" />
+      <created>1794519054513</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1794519054513</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="6483e0ba-e2ae-45ec-999c-b82cec25af12" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="6483e0ba-e2ae-45ec-999c-b82cec25af12">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Stage 4 Complete" />
+    <MESSAGE value="Stage 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stage 4" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ECS170$script_rnn.coverage" NAME="script_rnn Coverage Results" MODIFIED="1794516957226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/stage2submittion/script/stage_4_script" />
+    <SUITE FILE_PATH="coverage/ECS170$Test.coverage" NAME="Test Coverage Results" MODIFIED="1794514176136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/stage2submittion/local_code/stage_4_code" />
+    <SUITE FILE_PATH="coverage/ECS170$Evaluate_Metrics.coverage" NAME="Evaluate_Metrics Coverage Results" MODIFIED="1792017659624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/stage2submittion/local_code/stage_3_code" />
+  </component>
+</project>
