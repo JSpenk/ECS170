@@ -5,7 +5,6 @@ Base MethodModule class for all models and frameworks
 # Copyright (c) 2017 Jiawei Zhang <jwzhanggy@gmail.com>
 # License: TBD
 
-
 import abc
 
 
