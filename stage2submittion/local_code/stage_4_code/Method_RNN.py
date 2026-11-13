@@ -24,12 +24,14 @@ class METHOD_RNN(Method_MLP):
 
     def __init__(self, mName, mDescription, vocab_size=10000,
                  embedding_dim=128, max_length=300, n_classes=2,
-                 rnn_type='rnn', rnn_hidden=128, num_layers=1,
-                 bidirectional=False, rnn_dropout=0.0,
-                 hidden_dim=128, activation='relu', dropout=0.25,
+                 rnn_type='rnn', rnn_hidden=64, num_layers=1,
+                 bidirectional=False, rnn_dropout=0.4,
+                 hidden_dim=64, activation='relu', dropout=0.5,
                  optimizer='adam', learning_rate=1e-3,
-                 weight_decay=0.0, loss='cross_entropy',
-                 max_epoch=10, batch_size=128, device=None):
+                 weight_decay=0.0001, loss='cross_entropy',
+                 max_epoch=10, batch_size=128, device=None,
+                 pretrained_embedding_path=None, freeze_embeddings=False
+                 ):
 
         method.__init__(self, mName, mDescription)
         nn.Module.__init__(self)
@@ -53,7 +55,6 @@ class METHOD_RNN(Method_MLP):
         self.max_epoch = max_epoch
         self.batch_size = batch_size
         self.softmax_output = False
-
         self.device = torch.device(device) if device else torch.device(
             'cuda' if torch.cuda.is_available() else 'cpu'
         )
@@ -65,8 +66,7 @@ class METHOD_RNN(Method_MLP):
         self.embedding = nn.Embedding(
             vocab_size, embedding_dim, padding_idx=0
         )
-
-        # Select recurrent architecture
+        # Select model
         rnns = {
             'rnn': nn.RNN,
             'lstm': nn.LSTM,
@@ -102,6 +102,7 @@ class METHOD_RNN(Method_MLP):
         self.to(self.device)
         self.history = {'epoch': [],'train_loss': [], 'train_acc': [],'test_acc': []}
 
+    # --CLEAN + EXTRACT VOCAB--
     @staticmethod
     def _clean_text(text):
         text = text.lower()
@@ -152,7 +153,7 @@ class METHOD_RNN(Method_MLP):
 
         return X, np.asarray(lengths, dtype=np.int64)
 
-    # Forward propagation
+    # --Forward propagation--
     def forward(self, x, lengths=None):
 
         embedded = self.embedding(x)
@@ -174,9 +175,7 @@ class METHOD_RNN(Method_MLP):
 
     @torch.no_grad()
     def _predict(self, X_tensor, lengths):
-
         self._set_mode(False)
-
         predictions = []
 
         for i in range(0, X_tensor.shape[0], 4096):
@@ -187,33 +186,17 @@ class METHOD_RNN(Method_MLP):
 
         return torch.cat(predictions)
 
-    def train(self, X, y, lengths, X_monitor=None,
-              y_monitor=None, monitor_lengths=None):
+    def train(self, X, y, lengths, X_monitor=None, y_monitor=None, monitor_lengths=None):
 
         optimizer = self._make_optimizer()
-
-        X = torch.as_tensor(
-            X, dtype=torch.long, device=self.device
-        )
-
-        y = torch.as_tensor(
-            np.asarray(y), dtype=torch.long, device=self.device
-        )
-
-        lengths = torch.as_tensor(
-            lengths, dtype=torch.long
-        )
+        X = torch.as_tensor(X, dtype=torch.long, device=self.device)
+        y = torch.as_tensor(np.asarray(y), dtype=torch.long, device=self.device)
+        lengths = torch.as_tensor(lengths, dtype=torch.long)
 
         if X_monitor is not None:
-            X_monitor = torch.as_tensor(
-                X_monitor, dtype=torch.long, device=self.device
-            )
-
+            X_monitor = torch.as_tensor(X_monitor, dtype=torch.long, device=self.device)
             y_monitor = np.asarray(y_monitor)
-
-            monitor_lengths = torch.as_tensor(
-                monitor_lengths, dtype=torch.long
-            )
+            monitor_lengths = torch.as_tensor(monitor_lengths, dtype=torch.long)
 
         dataset = TensorDataset(X, y, lengths)
 
@@ -226,12 +209,10 @@ class METHOD_RNN(Method_MLP):
         n = X.shape[0]
 
         for epoch in range(1, self.max_epoch + 1):
-
             self._set_mode(True)
 
             epoch_loss = 0.0
             correct = 0
-
             for batch_x, batch_y, batch_lengths in loader:
                 batch_x = batch_x.to(self.device)
                 batch_y = batch_y.to(self.device)
@@ -239,29 +220,21 @@ class METHOD_RNN(Method_MLP):
                 train_loss = self._loss(output, batch_y)
                 optimizer.zero_grad()
                 train_loss.backward()
+                torch.nn.utils.clip_grad_norm_(self.parameters(), max_norm=1.0)
                 optimizer.step()
                 epoch_loss += train_loss.item() * batch_x.shape[0]
                 correct += (
                     output.argmax(dim=1) == batch_y
                 ).sum().item()
 
-            train_loss_value = epoch_loss / n
-            train_acc = correct / n
-
             self.history['epoch'].append(epoch)
-            self.history['train_loss'].append(train_loss_value)
-            self.history['train_acc'].append(train_acc)
+            self.history['train_loss'].append(epoch_loss / n)
+            self.history['train_acc'].append(correct / n)
 
-            msg = (
-                'Epoch: %3d  Loss: %.4f  Train acc: %.4f'
-                % (epoch, train_loss_value, train_acc)
-            )
+            msg = 'Epoch: %3d  Loss: %.4f  Train acc: %.4f' % (epoch, epoch_loss / n, correct / n)
 
             if X_monitor is not None:
-
-                predictions = self._predict(
-                    X_monitor, monitor_lengths
-                ).cpu().numpy()
+                predictions = self._predict(X_monitor, monitor_lengths).cpu().numpy()
 
                 acc = (y_monitor == predictions).mean()
                 self.history['test_acc'].append(float(acc))
@@ -276,7 +249,6 @@ class METHOD_RNN(Method_MLP):
         )
 
         predictions = self._predict(X, lengths)
-
         return predictions.cpu().numpy()
 
     def run(self):
@@ -299,7 +271,6 @@ class METHOD_RNN(Method_MLP):
         self._build_vocabulary(train_reviews)
         X_train, train_lengths = self._encode_reviews(train_reviews)
         X_test, test_lengths = self._encode_reviews(test_reviews)
-
         print('Vocabulary size:', len(self.word_to_id))
         print('--start training...')
 

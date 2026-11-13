@@ -7,7 +7,8 @@ Base IO class for all datasets
 
 
 from local_code.base_class.dataset import dataset
-import numpy as np
+import os
+import pandas as pd
 
 from pathlib import Path
 
@@ -47,7 +48,7 @@ class Dataset_Loader(dataset):
             review_folder = folder / sentiment
 
             for file in review_folder.glob('*.txt'):
-                with open(file, 'r') as f:
+                with open(file, 'r', encoding='utf-8') as f:
                     review = f.read()
 
                 # Splitting up
@@ -57,3 +58,15 @@ class Dataset_Loader(dataset):
         print('--loaded', len(x), 'reviews,', len(set(y)), 'classes')
         return {'X': x, 'y': y}
 
+    def load_text_generation_data(self):
+        print('loading text generation data...')
+
+        file_path = Path(self.dataset_source_folder_path) / self.dataset_source_file_name / 'data'
+
+        df = pd.read_csv(file_path)
+
+        jokes = df['Joke'].dropna().tolist()
+
+        print('--loaded', len(jokes), 'jokes')
+
+        return {'X': jokes}

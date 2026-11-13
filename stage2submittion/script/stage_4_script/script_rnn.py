@@ -22,6 +22,15 @@ import numpy as np
 import torch
 import json
 
+print("PyTorch:", torch.__version__)
+print("PyTorch CUDA:", torch.version.cuda)
+print("CUDA available:", torch.cuda.is_available())
+
+if torch.cuda.is_available():
+    print("GPU:", torch.cuda.get_device_name(0))
+else:
+    print("Using CPU")
+
 data_folder = '../../data/stage_4_data/'
 result_folder = '../../result/stage_4_result/'
 
@@ -51,11 +60,11 @@ method_obj = METHOD_RNN(
     'IMDb sentiment classification',
     rnn_type='rnn',
     vocab_size=10000,
-    embedding_dim=128,
+    embedding_dim=100,
     rnn_hidden=128,
     max_length=300,
-    max_epoch=20,
-    batch_size=128
+    max_epoch=15,
+    batch_size=128,
 )
 
 result_obj = Result_Saver('saver', '')

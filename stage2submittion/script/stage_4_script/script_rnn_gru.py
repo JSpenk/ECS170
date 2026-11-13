@@ -1,5 +1,5 @@
 '''
-Stage 4: train an RNN on the GRU training set, evaluate on the testing set,
+Stage 4: train an RNN on the IMDb training set, evaluate on the testing set,
 save the predictions, the metrics and the learning-curve plot.
 
 Run from this folder (script/stage_4_script).
@@ -36,26 +36,26 @@ if 1:
     os.makedirs(result_folder, exist_ok=True)
 
 # ---- objection initialization section ---------------
-train_obj = Dataset_Loader('GRU train', 'GRU training reviews')
+train_obj = Dataset_Loader('IMDb train', 'IMDb training reviews')
 train_obj.dataset_source_folder_path = data_folder
 train_obj.dataset_source_file_name = 'text_classification'
 train_obj.split = 'train'
 
-test_obj = Dataset_Loader('GRU test', 'GRU testing reviews')
+test_obj = Dataset_Loader('IMDb test', 'IMDb testing reviews')
 test_obj.dataset_source_folder_path = data_folder
 test_obj.dataset_source_file_name = 'text_classification'
 test_obj.split = 'test'
 
 method_obj = METHOD_RNN(
     'RNN',
-    'GRU sentiment classification',
+    'IMDb sentiment classification',
     rnn_type='gru',
     vocab_size=10000,
-    embedding_dim=128,
+    embedding_dim=100,
     rnn_hidden=128,
     max_length=300,
-    max_epoch=20,
-    batch_size=128
+    max_epoch=15,
+    batch_size=128,
 )
 
 result_obj = Result_Saver('saver', '')

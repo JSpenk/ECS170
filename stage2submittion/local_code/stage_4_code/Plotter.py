@@ -33,6 +33,19 @@ def plot_learning_curves(history, path, title='MLP'):
     fig.savefig(path, dpi=200)
     plt.close(fig)
 
+def plot_generation_learning_curve(history, path, title='RNN Generation'):
+    fig, ax = plt.subplots(figsize=(6, 4))
+
+    ep = history['epoch']
+
+    ax.plot(ep, history['train_loss'], color=SERIES[0], linewidth=2)
+
+    _style(ax, 'Training loss - ' + title, 'Epoch', 'Cross-entropy loss')
+
+    fig.tight_layout()
+    fig.savefig(path, dpi=200)
+    plt.close(fig)
+
 
 def plot_ablation_groups(groups, path, ncols=3, metric='test_acc', ylabel='Test accuracy', ymin=None):
     '''groups: list of (group_title, [(label, history), ...]); one panel per group.

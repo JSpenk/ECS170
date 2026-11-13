@@ -1,5 +1,5 @@
 '''
-Stage 4: train an RNN on the LSTM training set, evaluate on the testing set,
+Stage 4: train an RNN on the IMDb training set, evaluate on the testing set,
 save the predictions, the metrics and the learning-curve plot.
 
 Run from this folder (script/stage_4_script).
@@ -36,26 +36,26 @@ if 1:
     os.makedirs(result_folder, exist_ok=True)
 
 # ---- objection initialization section ---------------
-train_obj = Dataset_Loader('LSTM train', 'LSTM training reviews')
+train_obj = Dataset_Loader('IMDb train', 'IMDb training reviews')
 train_obj.dataset_source_folder_path = data_folder
 train_obj.dataset_source_file_name = 'text_classification'
 train_obj.split = 'train'
 
-test_obj = Dataset_Loader('LSTM test', 'LSTM testing reviews')
+test_obj = Dataset_Loader('IMDb test', 'IMDb testing reviews')
 test_obj.dataset_source_folder_path = data_folder
 test_obj.dataset_source_file_name = 'text_classification'
 test_obj.split = 'test'
 
 method_obj = METHOD_RNN(
     'RNN',
-    'LSTM sentiment classification',
+    'IMDb sentiment classification',
     rnn_type='lstm',
     vocab_size=10000,
-    embedding_dim=128,
+    embedding_dim=100,
     rnn_hidden=128,
     max_length=300,
-    max_epoch=20,
-    batch_size=128
+    max_epoch=15,
+    batch_size=128,
 )
 
 result_obj = Result_Saver('saver', '')
@@ -89,7 +89,7 @@ print('testing time: %.1fs' % method_obj.method_testing_time)
 
 plot_learning_curves(
         method_obj.history,
-        result_folder + 'RNN_GRU_learning_curve.png'
+        result_folder + 'RNN_LSTM_learning_curve.png'
     )
 
 with open(result_folder + 'RNN_LSTM_final_metrics.json', 'w') as f:
@@ -103,4 +103,4 @@ with open(result_folder + 'RNN_LSTM_final_metrics.json', 'w') as f:
         )
     }, f, indent=2)
 
-print('************ Finish ***********')
+print('************ Finish ************')
