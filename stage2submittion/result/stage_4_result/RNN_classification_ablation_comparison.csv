@@ -1,0 +1,9 @@
+Factor,Setting,GRU,LSTM,RNN
+Baseline,Baseline,86.55199999999999,87.292,79.416
+Depth,{'num_layers': 2},86.876,85.092,79.608
+Embedding,{'embedding_dim': 128},86.776,87.08399999999999,80.604
+Embedding,{'embedding_dim': 64},86.752,86.312,79.372
+Hidden Dimension,{'rnn_hidden': 256},87.184,87.22800000000001,78.28399999999999
+Hidden Dimension,{'rnn_hidden': 64},85.56,86.524,78.13600000000001
+Learning Rate,{'learning_rate': 0.0001},82.36,82.392,72.54
+Learning Rate,{'learning_rate': 0.01},87.388,85.61999999999999,50.0
